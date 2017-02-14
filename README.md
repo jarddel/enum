@@ -39,7 +39,7 @@ class LanguageEnum extends Enum
 }
 ```
 
-Possibility of using enum with php typehint, restricting their value according to their respective type:
+Possibility of using enum with php typehint, restricting their value according to their respective values of type:
 ```php
 public function setLanguage(LanguageEnum $language) 
 {
