@@ -29,7 +29,7 @@ class LanguageEnum extends Enum
 	      JS     = 5
     ;
 
-    protected $descriptions = [
+    protected static $descriptions = [
     	'Java',
     	'PHP',
     	'Python',
