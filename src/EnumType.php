@@ -21,9 +21,7 @@ abstract class EnumType extends Enum
     {
         static::assignValues();
 
-        $values = implode(', ', static::$values);
-
-        return "ENUM('{$values}')";
+        return "ENUM(".implode(", ", static::$descriptions ? : static::$values).")";
     }
 
     /**
