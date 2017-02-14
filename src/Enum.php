@@ -35,7 +35,11 @@ abstract class Enum
     protected static $constants = [];
 
 
-    final function __construct(){}
+    final function __construct()
+    {
+        static::assignConstants();
+        static::assignValues();
+    }
 
     /**
      * Gets all possible values ​​for the enumerative class.
