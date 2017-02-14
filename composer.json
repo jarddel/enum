@@ -1,0 +1,26 @@
+{
+    "name": "robusto/enum",
+    "description": "A PHP 7.0+ Robust enumeration library.",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "^5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Robusto\\Enum\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Robusto\\Enum\\Tests\\": "tests"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jarddel Antunes"
+        }
+    ]
+}
