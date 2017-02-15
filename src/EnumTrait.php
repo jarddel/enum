@@ -123,7 +123,42 @@ trait EnumTrait
         static::assignConstants();
         static::assignValues();
 
-        $index = array_search($constant, static::$constants);
+        try {
+            return self::getEnumByValue($constant, static::$constants);
+        } catch(\InvalidArgumentException $exception) {
+            throw $exception;
+        }
+    }
+
+    /**
+     * Get the instance of the enumerative class by description
+     *
+     * @param string $constant
+     * @throws \InvalidArgumentException
+     * @return EnumInterface
+     */
+    protected static function getEnumByDescription(string $constant): EnumInterface
+    {
+        static::assignValues();
+
+        try {
+            return self::getEnumByValue($constant, static::$descriptions);
+        } catch(\InvalidArgumentException $exception) {
+            throw $exception;
+        }
+    }
+
+    /**
+     * Get the instance of the enumerative class by value, if it's in values.
+     *
+     * @param string $value
+     * @param array $values
+     * @throws \InvalidArgumentException
+     * @return EnumInterface
+     */
+    protected static function getEnumByValue(string $value, array $values): EnumInterface
+    {
+        $index = array_search($value, $values);
 
         if (false !== $index) {
             $enum = static::getInstance();

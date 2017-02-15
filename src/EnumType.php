@@ -35,7 +35,7 @@ abstract class EnumType extends Type implements EnumInterface
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
-        return static::getEnumByConstant($value);
+        return static::getEnumByDescription($value);
     }
 
     /**
