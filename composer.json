@@ -1,7 +1,18 @@
 {
     "name": "robusto/enum",
+    "type": "library",
     "description": "A PHP 7.0+ Robust enumeration library.",
+    "keywords": ["enum","enumerative", "type", "dbal"],
+    "homepage": "https://github.com/jarddel/enum",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Jarddel Antunes",
+            "email": "jarddel@hotmail.com",
+            "homepage": "http://www.jarddel.com",
+            "role": "Software Engineer"
+        }
+    ],
     "require": {
         "php": ">=7.0"
     },
@@ -18,10 +29,5 @@
         "psr-4": {
             "Robusto\\Enum\\Tests\\": "tests"
         }
-    },
-    "authors": [
-        {
-            "name": "Jarddel Antunes"
-        }
-    ]
+    }
 }
