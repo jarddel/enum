@@ -1,8 +1,12 @@
 Robusto Enum!
 =============
 A robust and simple way to define enumerative types in php.
-Robusto Enum for PHP 7.0+
 
+##### Requirements:
+- PHP 7.0+
+- [DBAL](https://github.com/doctrine/dbal) ***(Only need to use EnumType)***
+
+<br />
 Simple Example:
 ```php
 class DayWeekEnum extends Enum
@@ -22,7 +26,7 @@ Example using descriptions for the enumerative values:
 ```php
 class LanguageEnum extends Enum
 {
-	const JAVA   = 1,
+    const JAVA   = 1,
 	      PHP    = 2,
 	      PYTHON = 3,
 	      RUBY   = 4,
@@ -43,7 +47,7 @@ Possibility of using enum with php typehint, restricting their value according t
 ```php
 public function setLanguage(LanguageEnum $language) 
 {
-	$this->language = $language;
+    $this->language = $language;
 }
 
 $language = LanguageEnum::JAVA();
@@ -56,7 +60,7 @@ Printing description of its enum value:
 ```php
 public function getLanguage(): LanguageEnum 
 {
-	return $this->language;
+    return $this->language;
 }
 
 
@@ -103,7 +107,7 @@ class Foo
     /** @Column(type="integer") */
     private $id;
 
-    /** @Column(type="dayweek", name="day_week") */
+    /** @Column(type="day_week", name="day_week") */
     private $day;
 }
 ```
@@ -112,7 +116,7 @@ Using types with XML:
 ```xml
 <entity name="Foo" table="foo">
     <id name="id" column="id" type="integer" />
-    <field name="day" column="day_week" type="dayweek" />
+    <field name="day_week" column="day_week" type="dayweek" />
 </entity>
 ```
 
