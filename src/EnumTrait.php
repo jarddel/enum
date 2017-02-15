@@ -120,6 +120,9 @@ trait EnumTrait
      */
     protected static function getEnumByConstant(string $constant): EnumInterface
     {
+        static::assignConstants();
+        static::assignValues();
+
         $index = array_search($constant, static::$constants);
 
         if (false !== $index) {
