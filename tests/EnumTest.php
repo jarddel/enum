@@ -1,26 +1,38 @@
 <?php
 namespace Robusto\Enum\Tests;
 
+use Doctrine\DBAL\Types\Type;
+
 class EnumTest extends \PHPUnit_Framework_TestCase
 {
+    public static function setUpBeforeClass()
+    {
+        Type::addType('day_week', DayWeekEnum::class);
+    }
+
     public function testIdentity()
     {
-        $this->assertEquals(1, LanguageEnum::JAVA);
+        $this->assertEquals(1, DayWeekEnum::SUNDAY);
     }
 
     public function testDescription()
     {
-        $this->assertEquals('Javascript', (string) LanguageEnum::JS());
+        $this->assertEquals('Monday', (string) DayWeekEnum::MONDAY());
+    }
+
+    public function testMatchDescriptions()
+    {
+        $this->assertSameSize(DayWeekEnum::getValues(), DayWeekEnum::getDescriptions());
     }
 
     public function testInstance()
     {
-        $this->assertInstanceOf(LanguageEnum::class, LanguageEnum::PHP());
+        $this->assertInstanceOf(DayWeekEnum::class, DayWeekEnum::TUESDAY());
     }
 
     public function testValue()
     {
-        $this->assertEquals(3, LanguageEnum::PYTHON()->getValue());
+        $this->assertEquals(4, DayWeekEnum::WEDNESDAY()->getValue());
     }
 
     /**
@@ -28,6 +40,6 @@ class EnumTest extends \PHPUnit_Framework_TestCase
      */
     public function testInvalidValue()
     {
-        LanguageEnum::DELPHI();
+        LanguageTypeEnum::XDAY();
     }
 }
