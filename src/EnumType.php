@@ -1,23 +1,27 @@
 <?php
 namespace Robusto\Enum;
 
+use Doctrine\DBAL\Types\Type;
+use Doctrine\DBAL\Platforms\AbstractPlatform;
+
 /**
  * Abstract class for enumerations, which can be used along with DBAL (Database Abstraction Layer)
  * To work on the concept of types.
  *
- * @author jarddel
+ * @author Jarddel Antunes
  * @package Robusto\Enum
  * @copyright 2017 Robusto Enum
  */
-abstract class EnumType extends Enum
+abstract class EnumType extends Type implements EnumInterface
 {
+    use EnumTrait;
+
     /**
      *
-     * @param array $fieldDeclaration
-     * @param object $platform
-     * @return string
+     * {@inheritDoc}
+     * @see \Doctrine\DBAL\Types\Type::getSQLDeclaration()
      */
-    public function getSQLDeclaration($fieldDeclaration, $platform)
+    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {
         static::assignValues();
 
@@ -26,21 +30,55 @@ abstract class EnumType extends Enum
 
     /**
      *
-     * @param mixed $value
-     * @param object $platform
-     * @return Enum
+     * {@inheritDoc}
+     * @see \Doctrine\DBAL\Types\Type::convertToPHPValue()
      */
-    public function convertToPHPValue($value, $platform)
+    public function convertToPHPValue($value, AbstractPlatform $platform)
     {
-        return EnumFactory::createEnumByConstant($value, static::class);
+        return static::getEnumByConstant($value);
     }
 
     /**
      *
-     * @return boolean
+     * {@inheritDoc}
+     * @see \Doctrine\DBAL\Types\Type::getName()
      */
-    public function canRequireSQLConversion()
+    public function getName()
     {
-        return false;
+        return static::class;
+    }
+
+    /**
+     * Get the instance of the enumerative class
+     *
+     * @return EnumInterface
+     */
+    protected function getInstance(): EnumInterface
+    {
+        $type = strtolower(preg_replace(['(.*[\\\/])','/Enum|Type/','/(?<!^)[A-Z]/'], ['','','_$0'], static::class));
+
+        return static::getType($type);
+    }
+
+    /**
+     * Assigns the possible values ​​according to the enumerative class.
+     */
+    protected function assignValues()
+    {
+        $valuesSubClass = array_values((new \ReflectionClass(static::class))->getConstants());
+        $valuesSelfClass = array_values((new \ReflectionClass(self::class))->getConstants());
+
+        static::$values = array_diff($valuesSubClass, $valuesSelfClass);
+    }
+
+    /**
+     * Assigns the constants of the enumerative class.
+     */
+    protected static function assignConstants()
+    {
+        $constantsSubClass = array_keys((new \ReflectionClass(static::class))->getConstants());
+        $constantsSelfClass = array_keys((new \ReflectionClass(self::class))->getConstants());
+
+        static::$constants = array_diff($constantsSubClass, $constantsSelfClass);
     }
 }
