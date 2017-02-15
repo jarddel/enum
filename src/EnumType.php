@@ -63,7 +63,7 @@ abstract class EnumType extends Type implements EnumInterface
     /**
      * Assigns the possible values ​​according to the enumerative class.
      */
-    protected function assignValues()
+    protected static function assignValues()
     {
         $valuesSubClass = array_values((new \ReflectionClass(static::class))->getConstants());
         $valuesSelfClass = array_values((new \ReflectionClass(self::class))->getConstants());
