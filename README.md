@@ -4,7 +4,7 @@ A robust and simple way to define enumerative types in php.
 
 ##### Requirements:
 - PHP 7.0+
-- [DBAL](https://github.com/doctrine/dbal) ***(Only need to use EnumType)***
+- [DBAL](https://github.com/doctrine/dbal) ***(only for use EnumType)***
 
 <br />
 Simple Example:
