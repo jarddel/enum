@@ -99,7 +99,7 @@ trait EnumTrait
      */
     public function __toString(): string
     {
-        $values ?? static::assignValues();
+        static::assignValues();
         $description = static::$descriptions[array_search($this->value, static::$values)] ?? $this->value;
 
         return (string) $description;
