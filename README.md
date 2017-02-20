@@ -95,7 +95,7 @@ Adding types to configurations:
 doctrine:
    dbal:
        types:
-           dayweek: DayweekEnum
+           day_week: DayweekEnum
 ```
 Using types with annotation:
 
