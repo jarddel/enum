@@ -116,7 +116,7 @@ Using types with XML:
 ```xml
 <entity name="Foo" table="foo">
     <id name="id" column="id" type="integer" />
-    <field name="day_week" column="day_week" type="dayweek" />
+    <field name="day" column="day_week" type="day_week" />
 </entity>
 ```
 
