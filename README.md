@@ -2,6 +2,39 @@ Robusto Enum!
 =============
 A robust and simple way to define enumerative types in php.
 
+<table width="890"><tr>
+    <td width="116" align="center"><b>Scrutinizer</b></td>
+    <td width="122" align="center"><b>Latest</b></td>
+    <td width="108" align="center"><b>PHP</b></td>
+    <td width="150" align="center"><b>Usage</b></td>
+    <td width="142" align="center"><b>Development</b></td>
+    <td width="142" align="center"><b>Code Quality</b></td>
+    <td width="110" align="center"><b>License</b></td>
+</tr>
+<tr>
+    <td valign="top" width="116" align="center">
+        <a href="https://scrutinizer-ci.com/g/jarddel/enum/build-status/master">
+        <img src="https://scrutinizer-ci.com/g/jarddel/enum/badges/build.png?b=master"></a></td>
+    <td valign="top" width="122" align="center">
+        <a href="https://packagist.org/packages/robusto/enum">
+        <img src="https://poser.pugx.org/robusto/enum/v/stable"></a></td>
+    <td valign="top" width="108" align="center">
+        <a href="https://php.net/">
+        <img src="https://img.shields.io/badge/PHP-%3E%3D%207.0-8892BF.svg"></a></td>
+    <td valign="top" width="150" align="center">
+        <a href="https://packagist.org/packages/robusto/enum">
+        <img src="https://poser.pugx.org/robusto/enum/downloads"></a></td>
+    <td valign="top" width="142" align="center">
+        <a href="https://packagist.org/packages/robusto/enum">
+        <img src="https://poser.pugx.org/robusto/enum/v/unstable"></a></td>
+    <td valign="top" width="142" align="center">
+        <a href="https://scrutinizer-ci.com/g/jarddel/enum/?branch=master">
+        <img src="https://scrutinizer-ci.com/g/jarddel/enum/badges/quality-score.png?b=master"></a></td>
+    <td valign="top" width="110" align="center">
+        <a href="https://packagist.org/packages/robusto/enum">
+        <img src="https://poser.pugx.org/robusto/enum/license"></a></td>
+</tr></table>
+
 ##### Requirements:
 - PHP 7.0+
 - [DBAL](https://github.com/doctrine/dbal) ***(only for use EnumType)***
