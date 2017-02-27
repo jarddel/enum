@@ -53,7 +53,7 @@ abstract class EnumType extends Type implements EnumInterface
      *
      * @return EnumInterface
      */
-    protected function getInstance(): EnumInterface
+    protected static function getInstance(): EnumInterface
     {
         $type = strtolower(preg_replace(['(.*[\\\/])','/Enum|Type/','/(?<!^)[A-Z]/'], ['','','_$0'], static::class));
 
