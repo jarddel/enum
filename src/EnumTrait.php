@@ -110,7 +110,7 @@ trait EnumTrait
      *
      * @return EnumInterface
      */
-    abstract protected function getInstance(): EnumInterface;
+    abstract protected static function getInstance(): EnumInterface;
 
     /**
      * Get the instance of the enumerative class by constant
@@ -125,7 +125,7 @@ trait EnumTrait
         static::assignValues();
 
         try {
-            return self::getEnumByValue($constant, static::$constants);
+            return static::getEnumByValue($constant, static::$constants);
         } catch(\InvalidArgumentException $exception) {
             throw $exception;
         }
