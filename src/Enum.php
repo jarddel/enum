@@ -19,7 +19,7 @@ abstract class Enum implements EnumInterface
      *
      * @return EnumInterface
      */
-    protected function getInstance(): EnumInterface
+    protected static function getInstance(): EnumInterface
     {
         return new static();
     }
