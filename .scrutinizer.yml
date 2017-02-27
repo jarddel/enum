@@ -20,11 +20,11 @@ tools:
         config:
           level: psr2
         filter:
-            excluded_paths: ["src/dev/*","tests/*","vendor/*"]
+            excluded_paths: ["tests/*","vendor/*"]
             paths: ["src/*"]
     php_loc:
         enabled: true
-        excluded_dirs: ["src/dev/*","tests/*","vendor/*"]
+        excluded_dirs: ["tests/*","vendor/*"]
     php_mess_detector:
         enabled: true
         filter:
@@ -67,7 +67,7 @@ tools:
                 camel_case_variable_name: false
     php_pdepend:
         enabled: true
-        excluded_dirs: ["src/dev","tests","vendor"]
+        excluded_dirs: ["tests","vendor"]
     php_analyzer:
         enabled: true
         filter:
