@@ -13,7 +13,7 @@ A robust and simple way to define enumerative types in php.
 <tr>
     <td valign="top" width="136" align="center">
         <a href="https://scrutinizer-ci.com/g/jarddel/enum/build-status/master">
-            <img src="https://scrutinizer-ci.com/g/jarddel/enum/badges/build.png?b=master">
+            <img src="https://scrutinizer-ci.com/g/jarddel/enum/badges/build.png?b=master&cache=none">
 	</a>
     </td>
     <td valign="top" width="230" align="center">
