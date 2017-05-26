@@ -40,6 +40,6 @@ class EnumTest extends \PHPUnit_Framework_TestCase
      */
     public function testInvalidValue()
     {
-        LanguageTypeEnum::XDAY();
+        DayWeekEnum::XDAY();
     }
 }
