@@ -3,11 +3,6 @@ namespace Robusto\Enum\Tests;
 
 class EnumTest extends \PHPUnit_Framework_TestCase
 {
-    public static function setUpBeforeClass()
-    {
-        Type::addType('day_week', DayWeekEnum::class);
-    }
-
     public function testIdentity()
     {
         $this->assertEquals(1, DayWeekEnum::SUNDAY);
