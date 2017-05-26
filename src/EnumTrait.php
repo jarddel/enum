@@ -18,6 +18,12 @@ trait EnumTrait
 
     /**
      *
+     * @var string Represents the description of the enumerative instance.
+     */
+    protected $description;
+
+    /**
+     *
      * @var array Represents possible values ​​according to the enumerative class.
      */
     protected static $values = [];
@@ -63,19 +69,19 @@ trait EnumTrait
      *
      * @return int
      */
-    public function getValue()
+    public function getValue(): int
     {
         return $this->value;
     }
 
     /**
-     * Set value of the enumerative instance.
+     * Get description of the enumerative instance.
      *
-     * @param int $value
+     * @return string
      */
-    public function setValue($value)
+    public function getDescription(): string
     {
-        $this->value = $value;
+        return (string) $this->description;
     }
 
     /**
@@ -108,9 +114,11 @@ trait EnumTrait
     /**
      * Get the instance of the enumerative class
      *
+     * @param int $value
+     * @param string $description
      * @return EnumInterface
      */
-    abstract protected static function getInstance(): EnumInterface;
+    abstract protected static function getInstance(int $value, string $description = null): EnumInterface;
 
     /**
      * Get the instance of the enumerative class by constant
@@ -162,8 +170,8 @@ trait EnumTrait
         $index = array_search($value, $values);
 
         if (false !== $index) {
-            $enum = static::getInstance();
-            $enum->setValue(static::$values[$index]);
+            $description = static::$descriptions[array_search(static::$values[$index], static::$values)] ?? '';
+            $enum = static::getInstance(static::$values[$index], $description);
 
             return $enum;
         }

@@ -1,14 +1,8 @@
 <?php
 namespace Robusto\Enum\Tests;
 
-use Doctrine\DBAL\Types\Type;
-
 class EnumTest extends \PHPUnit_Framework_TestCase
 {
-    public static function setUpBeforeClass()
-    {
-        Type::addType('day_week', DayWeekEnum::class);
-    }
 
     public function testIdentity()
     {
@@ -40,6 +34,6 @@ class EnumTest extends \PHPUnit_Framework_TestCase
      */
     public function testInvalidValue()
     {
-        LanguageTypeEnum::XDAY();
+        DayWeekEnum::XDAY();
     }
 }
