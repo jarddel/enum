@@ -10,7 +10,7 @@ namespace Robusto\Enum;
  */
 interface EnumInterface
 {
-    public function getValue();
+    public function getValue(): int;
 
-    public function setValue($value);
+    public function getDescription(): string;
 }
