@@ -33,9 +33,9 @@ abstract class EnumType extends Type implements EnumInterface
      * {@inheritDoc}
      * @see \Doctrine\DBAL\Types\Type::convertToPHPValue()
      */
-    public function convertToPHPValue($value, AbstractPlatform $platform)
+    public function convertToPHPValue($value = null, AbstractPlatform $platform = null)
     {
-        return static::getEnumByDescription($value);
+        return $value ? static::getEnumByDescription($value) : $value;
     }
 
     /**
