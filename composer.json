@@ -1,7 +1,7 @@
 {
     "name": "robusto/enum",
     "type": "library",
-    "description": "A PHP 7.0+ Robust enumeration library.",
+    "description": "A PHP 7.3+ Robust enumeration library.",
     "keywords": ["enum","enumerative", "type", "dbal"],
     "homepage": "https://github.com/jarddel/enum",
     "license": "MIT",
@@ -14,8 +14,8 @@
         }
     ],
     "require": {
-        "php": ">=7.0",
-        "doctrine/dbal": "~2.5.5"
+        "php": ">=7.3",
+        "doctrine/dbal": "^2.6"
     },
     "require-dev": {
         "phpunit/phpunit" : "^5.5",
