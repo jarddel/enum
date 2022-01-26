@@ -12,15 +12,23 @@ abstract class Enum implements EnumInterface
 {
     use EnumTrait;
 
-    final private function __construct(){}
+    /**
+     *
+     * @param int $value
+     */
+    final private function __construct(int $value, string $description = null)
+    {
+        $this->value = $value;
+        $this->description = $description;
+    }
 
     /**
      * Get the instance of the enumerative class
      *
      * @return EnumInterface
      */
-    protected static function getInstance(): EnumInterface
+    protected static function getInstance(int $value, string $description = null): EnumInterface
     {
-        return new static();
+        return new static($value, $description);
     }
 }
