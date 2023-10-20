@@ -1,4 +1,5 @@
 <?php
+
 namespace Robusto\Enum\Tests;
 
 use Robusto\Enum\Enum;

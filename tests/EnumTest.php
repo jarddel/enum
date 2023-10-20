@@ -1,9 +1,11 @@
 <?php
+
 namespace Robusto\Enum\Tests;
 
-class EnumTest extends \PHPUnit_Framework_TestCase
-{
+use PHPUnit\Framework\TestCase;
 
+class EnumTest extends TestCase
+{
     public function testIdentity()
     {
         $this->assertEquals(1, DayWeekEnum::SUNDAY);
@@ -29,11 +31,9 @@ class EnumTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(4, DayWeekEnum::WEDNESDAY()->getValue());
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testInvalidValue()
     {
+        $this->expectException(\InvalidArgumentException::class);
         DayWeekEnum::XDAY();
     }
 }
